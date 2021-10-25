@@ -91,7 +91,7 @@ class JSONSchemaToDatabase:
         return '__'.join(change_case.ChangeCase.camel_to_snake(self._abbreviations.get(p, p)) for p in path)
 
     def _column_name(self, path):
-        return self._table_name(path)  # same
+        return self._table_name(path[1:])  # new
 
     def _execute(self, cursor, query, args=None, query_ok_to_print=True):
         if self._debug and query_ok_to_print:
